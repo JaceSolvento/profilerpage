@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F4EFE7">
+  <meta name="description" content="張淳碧，具備 15 年資訊系統專案管理經驗與 PMP 專業證照，專注需求分析、系統規劃、跨團隊協作及專案交付。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="張淳碧｜資訊系統專案管理">
+  <meta property="og:description" content="Turning Complexity Into Clarity — 將複雜化為清晰，讓資訊系統專案穩健落地。">
+  <title>張淳碧｜資訊系統專案管理・Turning Complexity Into Clarity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { blue: '#64705A', purple: '#B85C3D', mint: '#64705A', ink: '#29251F' }
+          },
+          fontFamily: { sans: ['DM Sans', 'Noto Sans TC', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --blue: #64705a;
+      --purple: #b85c3d;
+      --mint: #64705a;
+      --ink: #29251f;
+      --muted: #746b61;
+      --line: #d9cdbd;
+      --paper: #fbf8f3;
+      --soft: #f4efe7;
+      --container: 1160px;
+      --ease: cubic-bezier(.22, 1, .36, 1);
+    }
+    * { box-sizing: border-box; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+    body {
+      margin: 0; color: var(--ink); background: var(--paper);
+      font-family: 'DM Sans', 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+    body::selection { background: #dbeafe; color: #1d4ed8; }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button:focus-visible, a:focus-visible { outline: 3px solid #93c5fd; outline-offset: 4px; border-radius: 8px; }
+    .container-wide { width: min(var(--container), calc(100% - 48px)); margin-inline: auto; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: #475569; font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+    .eyebrow::before { content: ''; width: 22px; height: 1px; background: linear-gradient(90deg, var(--blue), var(--purple)); }
+    .section { padding: 112px 0; position: relative; }
+    .section-soft { background: linear-gradient(180deg, #f8fbff 0%, #f8fafc 100%); }
+    .section-heading { max-width: 700px; margin-bottom: 48px; }
+    .section-heading h2 { margin: 17px 0 16px; font-size: clamp(30px, 4.2vw, 48px); line-height: 1.17; letter-spacing: -.045em; font-weight: 700; }
+    .section-heading h2 .zh { display: block; margin-top: 10px; color: #64748b; font-size: .44em; letter-spacing: .02em; font-weight: 600; }
+    .section-heading p { margin: 0; color: var(--muted); line-height: 1.9; font-size: 15px; max-width: 630px; }
+    .gradient-text { background: linear-gradient(105deg, #2563eb 5%, #6366f1 52%, #7c3aed 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .topbar { position: fixed; z-index: 100; inset: 0 0 auto; height: 76px; border-bottom: 1px solid rgba(226,232,240,.72); background: rgba(255,255,255,.78); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); transition: box-shadow .25s ease, background .25s ease; }
+    .topbar.is-scrolled { box-shadow: 0 7px 30px rgba(15,23,42,.055); background: rgba(255,255,255,.94); }
+    .nav-wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand-lockup { display: inline-flex; gap: 12px; align-items: center; flex-shrink: 0; }
+    .brand-mark { width: 38px; height: 38px; border-radius: 13px; display: grid; place-items: center; color: white; background: linear-gradient(140deg, #2563eb, #7c3aed); box-shadow: 0 7px 18px rgba(37,99,235,.22); }
+    .brand-mark svg { width: 22px; height: 22px; }
+    .brand-name { display: block; font-size: 14px; font-weight: 800; letter-spacing: .025em; line-height: 1.25; }
+    .brand-role { display: block; margin-top: 3px; color: #64748b; font-size: 10px; letter-spacing: .09em; }
+    .desktop-nav { display: flex; align-items: center; gap: clamp(15px, 2.2vw, 28px); }
+    .nav-link { position: relative; padding: 10px 0; color: #64748b; font-size: 12px; font-weight: 600; transition: color .2s ease; white-space: nowrap; }
+    .nav-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: 2px; height: 2px; border-radius: 10px; background: linear-gradient(90deg, var(--blue), var(--purple)); transform: scaleX(0); transform-origin: left; transition: transform .25s var(--ease); }
+    .nav-link:hover, .nav-link[aria-current="location"] { color: var(--ink); }
+    .nav-link:hover::after, .nav-link[aria-current="location"]::after { transform: scaleX(1); }
+    .nav-cta { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid #c7d2fe; padding: 11px 16px; color: #1d4ed8; border-radius: 999px; background: rgba(239,246,255,.72); font-size: 12px; font-weight: 700; white-space: nowrap; transition: transform .2s ease, box-shadow .25s ease, border-color .25s ease; }
+    .nav-cta:hover { transform: translateY(-2px); border-color: #93c5fd; box-shadow: 0 7px 20px rgba(37,99,235,.12); }
+    .nav-cta svg { width: 14px; height: 14px; }
+    .menu-toggle { display: none; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 13px; background: white; color: var(--ink); align-items: center; justify-content: center; }
+    .menu-toggle svg { width: 20px; height: 20px; }
+
+    /* Keep the mobile navigation completely out of desktop layout.  Without this base rule,
+       its links fall into normal document flow and SVG arrows use the browser's default size. */
+    .mobile-nav { display: none; }
+    .mobile-nav svg { width: 16px; height: 16px; flex: 0 0 16px; }
+
+    /* Hero */
+    .hero { min-height: 730px; padding: 154px 0 94px; position: relative; overflow: hidden; background: radial-gradient(ellipse at 76% 27%, rgba(219,234,254,.54), transparent 33%), radial-gradient(ellipse at 93% 62%, rgba(237,233,254,.48), transparent 35%), linear-gradient(180deg, #fff 0%, #fbfdff 76%, #fff 100%); }
+    .hero::before { content: ''; position: absolute; inset: 0; opacity: .34; pointer-events: none; background-image: linear-gradient(rgba(148,163,184,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,.09) 1px, transparent 1px); background-size: 56px 56px; mask-image: linear-gradient(90deg, transparent 5%, #000 52%, transparent 100%); }
+    .hero::after { content: ''; position: absolute; width: 420px; height: 420px; top: 70px; right: -120px; border: 1px solid rgba(96,165,250,.15); border-radius: 50%; box-shadow: 0 0 0 42px rgba(191,219,254,.07), 0 0 0 92px rgba(191,219,254,.045); pointer-events: none; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.03fr) minmax(400px, .97fr); gap: clamp(38px, 5vw, 76px); align-items: center; position: relative; z-index: 1; }
+    .hero-copy { position: relative; z-index: 2; }
+    .availability { display: inline-flex; align-items: center; gap: 9px; padding: 8px 12px; border: 1px solid #dbeafe; border-radius: 999px; background: rgba(255,255,255,.78); color: #475569; font-size: 11px; letter-spacing: .035em; box-shadow: 0 4px 14px rgba(15,23,42,.025); }
+    .pulse-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 4px rgba(16,185,129,.11); }
+    .hero h1 { min-height: 2.36em; max-width: 720px; margin: 27px 0 23px; font-size: clamp(42px, 5.3vw, 70px); font-weight: 700; line-height: 1.08; letter-spacing: -.065em; }
+    .typed-visual { display: block; min-height: 2.16em; color: #0f172a; }
+    .typed-visual .cursor { display: inline-block; width: 3px; height: .82em; margin-left: 5px; vertical-align: -.02em; background: #6366f1; animation: blink 1s steps(2, start) infinite; }
+    .hero-subtitle { max-width: 540px; margin: 0; color: #475569; font-size: clamp(16px, 1.45vw, 18px); font-weight: 500; line-height: 1.95; letter-spacing: .015em; }
+    .hero-subtitle strong { color: #1e293b; font-weight: 700; }
+    .hero-tags { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+    .hero-tag { padding: 7px 10px; border: 1px solid #e2e8f0; border-radius: 8px; background: rgba(255,255,255,.76); color: #64748b; font-size: 10px; font-weight: 700; letter-spacing: .035em; }
+    .hero-tag:first-child { color: #1d4ed8; border-color: #dbeafe; background: #eff6ff; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .btn { min-height: 49px; padding: 0 20px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; border-radius: 13px; font-size: 13px; font-weight: 700; transition: transform .22s var(--ease), box-shadow .22s ease, background .22s ease, border-color .22s ease; cursor: pointer; }
+    .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .btn-primary { color: white; border: 1px solid transparent; background: linear-gradient(110deg, #2563eb, #635bdf 75%, #7c3aed); box-shadow: 0 10px 23px rgba(37,99,235,.22); }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 28px rgba(37,99,235,.28); }
+    .btn-secondary { color: #334155; border: 1px solid #dbe3ee; background: rgba(255,255,255,.84); }
+    .btn-secondary:hover { transform: translateY(-3px); border-color: #bfdbfe; background: white; box-shadow: 0 10px 22px rgba(15,23,42,.055); }
+    .hero-footnote { display: flex; align-items: center; gap: 9px; margin-top: 25px; color: #94a3b8; font-size: 11px; }
+    .hero-footnote svg { width: 16px; height: 16px; color: #64748b; }
+    .hero-visual { min-width: 0; position: relative; padding: 22px 0 22px 10px; }
+    .visual-halo { position: absolute; inset: 7% 1% 5% 1%; border-radius: 48%; background: radial-gradient(ellipse at 48% 48%, rgba(191,219,254,.42), rgba(237,233,254,.18) 48%, transparent 72%); filter: blur(7px); }
+    .diagram { width: 100%; height: auto; position: relative; z-index: 1; overflow: visible; filter: drop-shadow(0 18px 35px rgba(37,99,235,.08)); }
+    .diagram .flow-path { stroke-dasharray: 5 8; animation: dash 18s linear infinite; }
+    .diagram .node-halo { animation: breathe 5s ease-in-out infinite; transform-origin: center; }
+    .floating-note { position: absolute; z-index: 2; display: flex; align-items: center; gap: 10px; padding: 12px 14px; border: 1px solid rgba(226,232,240,.9); border-radius: 15px; background: rgba(255,255,255,.84); box-shadow: 0 12px 30px rgba(15,23,42,.075); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); animation: float 6s ease-in-out infinite; }
+    .floating-note.note-a { top: 8%; right: -1%; }
+    .floating-note.note-b { bottom: 8%; left: 0; animation-delay: -2.3s; }
+    .note-icon { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; color: #2563eb; background: #eff6ff; }
+    .note-icon.purple { color: #7c3aed; background: #f5f3ff; }
+    .note-icon svg { width: 18px; height: 18px; }
+    .note-label { display: block; color: #94a3b8; font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .note-value { display: block; margin-top: 3px; color: #334155; font-size: 11px; font-weight: 700; white-space: nowrap; }
+    .hero-scroll { position: absolute; z-index: 2; bottom: 28px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; color: #94a3b8; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; }
+    .scroll-line { width: 32px; height: 1px; background: linear-gradient(90deg, #cbd5e1, transparent); }
+
+    /* Shared cards and structure */
+    .pill { display: inline-flex; align-items: center; gap: 7px; padding: 7px 10px; border: 1px solid #dbeafe; border-radius: 999px; background: #eff6ff; color: #1d4ed8; font-size: 10px; font-weight: 700; }
+    .pill svg { width: 13px; height: 13px; }
+    .about-grid { display: grid; grid-template-columns: minmax(0,.83fr) minmax(0,1.17fr); gap: clamp(40px, 7vw, 100px); align-items: start; }
+    .about-intro { position: sticky; top: 115px; }
+    .about-quote { margin: 27px 0 25px; padding-left: 20px; border-left: 2px solid #93c5fd; color: #334155; font-size: 19px; line-height: 1.75; font-weight: 600; letter-spacing: -.02em; }
+    .about-copy { color: #64748b; font-size: 14px; line-height: 2.05; }
+    .about-copy p { margin: 0 0 16px; }
+    .credential-panel { display: flex; align-items: center; gap: 14px; margin-top: 26px; padding: 16px; border: 1px solid #e2e8f0; border-radius: 16px; background: linear-gradient(135deg, #fff, #f8fbff); }
+    .credential-icon { width: 44px; height: 44px; flex-shrink: 0; display: grid; place-items: center; color: #2563eb; border-radius: 13px; background: linear-gradient(135deg,#eff6ff,#eef2ff); }
+    .credential-icon svg { width: 22px; height: 22px; }
+    .credential-panel strong { display: block; color: #1e293b; font-size: 13px; }
+    .credential-panel span { display: block; margin-top: 4px; color: #94a3b8; font-size: 11px; }
+    .capability-list { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+    .capability-card { position: relative; min-height: 210px; padding: 23px; border: 1px solid #e7edf5; border-radius: 19px; background: rgba(255,255,255,.88); overflow: hidden; transition: transform .3s var(--ease), box-shadow .3s ease, border-color .3s ease; }
+    .capability-card::after { content: ''; position: absolute; top: -55px; right: -45px; width: 115px; height: 115px; border-radius: 50%; background: radial-gradient(circle, rgba(191,219,254,.28), transparent 70%); pointer-events: none; }
+    .capability-card:hover { transform: translateY(-5px); border-color: #c7d2fe; box-shadow: 0 18px 35px rgba(15,23,42,.06); }
+    .cap-icon { display: grid; width: 41px; height: 41px; place-items: center; margin-bottom: 20px; color: #2563eb; background: #eff6ff; border-radius: 13px; }
+    .capability-card:nth-child(2) .cap-icon, .capability-card:nth-child(5) .cap-icon { color: #7c3aed; background: #f5f3ff; }
+    .capability-card:nth-child(3) .cap-icon { color: #059669; background: #ecfdf5; }
+    .cap-icon svg { width: 20px; height: 20px; }
+    .capability-card h3 { margin: 0 0 10px; font-size: 15px; line-height: 1.55; font-weight: 700; letter-spacing: -.02em; }
+    .capability-card p { margin: 0; color: #64748b; font-size: 12px; line-height: 1.9; }
+    .method-strip { margin-top: 30px; padding: 23px; border: 1px solid #e2e8f0; border-radius: 18px; background: linear-gradient(110deg, #f8fbff, #fff 80%); }
+    .method-title { margin: 0 0 17px; color: #475569; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .method-flow { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 9px; }
+    .method-step { position: relative; padding: 13px 10px; text-align: center; border: 1px solid #e2e8f0; border-radius: 11px; background: white; color: #334155; font-size: 11px; font-weight: 700; line-height: 1.55; }
+    /* Draw a small CSS chevron in the gap instead of a text arrow glyph. */
+    .method-step:not(:last-child)::after { content: ''; position: absolute; top: 50%; right: -7px; width: 6px; height: 6px; border-top: 1.5px solid #94a3b8; border-right: 1.5px solid #94a3b8; transform: translateY(-50%) rotate(45deg); z-index: 3; pointer-events: none; }
+    .method-step span { display: block; margin-bottom: 5px; color: #94a3b8; font-size: 9px; letter-spacing: .1em; }
+
+    /* Solutions */
+    .solution-topline { display: flex; align-items: end; justify-content: space-between; gap: 30px; }
+    .solution-topline .section-heading { margin-bottom: 46px; }
+    .solution-side-note { max-width: 250px; margin-bottom: 52px; color: #94a3b8; font-size: 11px; line-height: 1.9; }
+    .solutions-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 17px; }
+    .solution-card { position: relative; display: flex; flex-direction: column; min-height: 390px; padding: 27px; border: 1px solid #e5ebf3; border-radius: 20px; background: rgba(255,255,255,.87); overflow: hidden; transition: transform .3s var(--ease), box-shadow .3s ease, border-color .3s ease; }
+    .solution-card::before { content: ''; position: absolute; width: 180px; height: 180px; right: -100px; top: -105px; border-radius: 50%; background: rgba(219,234,254,.5); filter: blur(1px); transition: transform .45s var(--ease); }
+    .solution-card:hover { transform: translateY(-6px); border-color: #c7d2fe; box-shadow: 0 20px 36px rgba(15,23,42,.065); }
+    .solution-card:hover::before { transform: scale(1.35); }
+    .solution-card:nth-child(2)::before, .solution-card:nth-child(5)::before { background: rgba(237,233,254,.65); }
+    .solution-card:nth-child(3)::before { background: rgba(209,250,229,.6); }
+    .solution-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 22px; position: relative; }
+    .solution-number { color: #94a3b8; font-family: 'DM Sans',sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .12em; }
+    .solution-icon { display: grid; place-items: center; width: 46px; height: 46px; color: #2563eb; border-radius: 15px; background: #eff6ff; }
+    .solution-card:nth-child(2) .solution-icon, .solution-card:nth-child(5) .solution-icon { color: #7c3aed; background: #f5f3ff; }
+    .solution-card:nth-child(3) .solution-icon { color: #059669; background: #ecfdf5; }
+    .solution-icon svg { width: 22px; height: 22px; }
+    .solution-card h3 { position: relative; margin: 0 0 15px; font-size: 18px; font-weight: 700; letter-spacing: -.035em; line-height: 1.5; }
+    .challenge-label { margin: 0 0 7px; color: #94a3b8; font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .challenge-text { margin: 0 0 19px; color: #64748b; font-size: 12px; line-height: 1.85; }
+    .solution-detail { margin-top: auto; padding-top: 17px; border-top: 1px solid #eef2f7; }
+    .detail-row { display: grid; grid-template-columns: 64px minmax(0,1fr); gap: 9px; margin-top: 9px; font-size: 11px; line-height: 1.8; }
+    .detail-row strong { color: #475569; font-weight: 700; }
+    .detail-row span { color: #64748b; }
+    .service-cta { display: flex; align-items: center; justify-content: space-between; gap: 25px; margin-top: 28px; padding: 28px 32px; color: white; border-radius: 21px; background: linear-gradient(112deg, #1d4ed8 0%, #4f46e5 62%, #6d28d9 100%); overflow: hidden; position: relative; }
+    .service-cta::after { content: ''; position: absolute; right: 10%; top: -110px; width: 280px; height: 280px; border: 1px solid rgba(255,255,255,.15); border-radius: 50%; box-shadow: 0 0 0 36px rgba(255,255,255,.045), 0 0 0 76px rgba(255,255,255,.035); }
+    .service-cta h3 { position: relative; z-index: 1; margin: 0 0 8px; font-size: clamp(19px,2.5vw,25px); line-height: 1.45; letter-spacing: -.03em; }
+    .service-cta p { position: relative; z-index: 1; max-width: 650px; margin: 0; color: rgba(255,255,255,.77); font-size: 12px; line-height: 1.9; }
+    .service-cta .btn { position: relative; z-index: 2; flex-shrink: 0; color: #1d4ed8; background: white; border-color: white; box-shadow: 0 8px 22px rgba(15,23,42,.12); }
+    .service-cta .btn:hover { background: #ecfdf5; border-color: #d1fae5; }
+
+    /* Projects */
+    .project-list { display: grid; gap: 19px; }
+    .project-card { display: grid; grid-template-columns: minmax(0,.72fr) minmax(0,1.28fr); border: 1px solid #e2e8f0; border-radius: 22px; background: white; overflow: hidden; transition: transform .3s var(--ease), box-shadow .3s ease, border-color .3s ease; }
+    .project-card:hover { transform: translateY(-3px); border-color: #cbd5e1; box-shadow: 0 18px 36px rgba(15,23,42,.055); }
+    .project-aside { position: relative; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px; padding: 28px; background: linear-gradient(145deg,#eff6ff 0%,#f8fafc 56%,#f5f3ff 100%); overflow: hidden; }
+    .project-aside::before { content: ''; position: absolute; right: -40px; bottom: -100px; width: 250px; height: 250px; border: 1px solid rgba(99,102,241,.17); border-radius: 50%; box-shadow: 0 0 0 28px rgba(99,102,241,.045), 0 0 0 62px rgba(99,102,241,.035); }
+    .project-aside > * { position: relative; z-index: 1; }
+    .industry-label { align-self: flex-start; padding: 7px 10px; border: 1px solid rgba(191,219,254,.8); border-radius: 999px; color: #1d4ed8; background: rgba(255,255,255,.73); font-size: 10px; font-weight: 700; }
+    .project-glyph { width: 68px; height: 68px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.95); border-radius: 22px; color: #2563eb; background: rgba(255,255,255,.76); box-shadow: 0 10px 24px rgba(37,99,235,.08); }
+    .project-glyph svg { width: 33px; height: 33px; }
+    .project-index { color: #94a3b8; font-size: 10px; font-weight: 700; letter-spacing: .16em; }
+    .project-main { padding: 31px clamp(24px,4vw,48px); }
+    .project-main h3 { margin: 0 0 13px; font-size: clamp(19px,2.3vw,24px); line-height: 1.5; font-weight: 700; letter-spacing: -.035em; }
+    .project-main > p { margin: 0; color: #64748b; font-size: 13px; line-height: 1.95; }
+    .project-facts { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 20px; }
+    .fact-chip { display: inline-flex; align-items: center; gap: 7px; padding: 8px 10px; border-radius: 9px; background: #f8fafc; color: #475569; font-size: 10px; font-weight: 700; }
+    .fact-chip svg { width: 14px; height: 14px; color: #64748b; }
+    .project-points { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 13px 18px; padding-top: 19px; border-top: 1px solid #eef2f7; }
+    .project-point { display: flex; align-items: flex-start; gap: 9px; color: #64748b; font-size: 11px; line-height: 1.8; }
+    .point-check { display: grid; place-items: center; width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; border-radius: 6px; color: #059669; background: #ecfdf5; }
+    .point-check svg { width: 11px; height: 11px; }
+    .project-note { margin-top: 20px; padding-top: 16px; border-top: 1px dashed #e2e8f0; color: #94a3b8; font-size: 10px; line-height: 1.8; }
+    .other-projects { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 19px; }
+    .other-project { padding: 26px; border: 1px solid #e2e8f0; border-radius: 20px; background: #fff; transition: border-color .25s ease, transform .25s var(--ease), box-shadow .25s ease; }
+    .other-project:hover { transform: translateY(-4px); border-color: #c7d2fe; box-shadow: 0 13px 27px rgba(15,23,42,.045); }
+    .other-project .small-icon { display: grid; place-items: center; width: 40px; height: 40px; margin-bottom: 18px; color: #6366f1; background: #eef2ff; border-radius: 13px; }
+    .other-project .small-icon svg { width: 20px; height: 20px; }
+    .other-project h3 { margin: 0 0 10px; font-size: 17px; font-weight: 700; }
+    .other-project p { margin: 0; color: #64748b; font-size: 12px; line-height: 1.9; }
+    .project-principle { display: flex; align-items: flex-start; gap: 12px; margin-top: 24px; padding: 18px 20px; border-radius: 14px; background: #f8fafc; color: #64748b; font-size: 11px; line-height: 1.9; }
+    .project-principle svg { width: 18px; height: 18px; color: #64748b; flex-shrink: 0; margin-top: 1px; }
+
+    /* Insights */
+    .insights-head { display: flex; justify-content: space-between; align-items: end; gap: 28px; }
+    .insights-head .section-heading { margin-bottom: 42px; }
+    .draft-label { display: inline-flex; align-items: center; gap: 8px; align-self: flex-end; margin-bottom: 51px; padding: 8px 11px; border: 1px solid #e2e8f0; border-radius: 999px; color: #64748b; background: white; font-size: 10px; white-space: nowrap; }
+    .draft-label::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #cbd5e1; }
+    .insights-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
+    .insight-card { min-height: 285px; display: flex; flex-direction: column; padding: 25px; border: 1px solid #e2e8f0; border-radius: 19px; background: rgba(255,255,255,.88); transition: transform .3s var(--ease), box-shadow .3s ease, border-color .3s ease; }
+    .insight-card:hover { transform: translateY(-5px); border-color: #c7d2fe; box-shadow: 0 17px 33px rgba(15,23,42,.055); }
+    .insight-meta { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 25px; }
+    .insight-category { color: #6366f1; font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .insight-status { color: #94a3b8; font-size: 9px; }
+    .insight-card h3 { margin: 0 0 12px; font-size: 17px; font-weight: 700; line-height: 1.65; letter-spacing: -.025em; }
+    .insight-card p { margin: 0; color: #64748b; font-size: 12px; line-height: 1.95; }
+    .insight-bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 24px; color: #94a3b8; font-size: 10px; }
+    .insight-arrow { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 10px; color: #64748b; background: #f8fafc; }
+    .insight-arrow svg { width: 15px; height: 15px; }
+    .insights-disclaimer { margin-top: 18px; color: #94a3b8; font-size: 10px; line-height: 1.8; }
+
+    /* Core products */
+    .product-section { background: linear-gradient(180deg, #fff 0%, #f8fbff 100%); }
+    .product-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .product-card { display: flex; flex-direction: column; min-height: 335px; padding: 27px; border: 1px solid #e2e8f0; border-radius: 20px; background: rgba(255,255,255,.9); transition: transform .3s var(--ease), box-shadow .3s ease, border-color .3s ease; }
+    .product-card:hover { transform: translateY(-6px); border-color: #c7d2fe; box-shadow: 0 20px 36px rgba(15,23,42,.065); }
+    .product-icon { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 23px; border-radius: 15px; color: #2563eb; background: #eff6ff; font-size: 21px; }
+    .product-card:nth-child(2) .product-icon { color: #7c3aed; background: #f5f3ff; }
+    .product-card:nth-child(3) .product-icon { color: #059669; background: #ecfdf5; }
+    .product-card h3 { margin: 0 0 14px; font-size: 18px; line-height: 1.55; letter-spacing: -.035em; }
+    .product-card p { margin: 0; color: #64748b; font-size: 12px; line-height: 1.95; }
+    .product-link { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 22px; color: #2563eb; font-size: 11px; font-weight: 700; }
+    .product-link:hover { color: #4f46e5; }
+    .product-link i { font-size: 10px; }
+
+    /* Contact and footer */
+    .contact-section { padding: 94px 0 80px; background: linear-gradient(180deg, #fff 0%, #f8fbff 100%); }
+    .contact-panel { position: relative; padding: clamp(34px,6vw,70px); border: 1px solid #dbeafe; border-radius: 28px; background: radial-gradient(ellipse at 90% 0%, rgba(219,234,254,.65), transparent 37%), radial-gradient(ellipse at 0% 100%, rgba(237,233,254,.52), transparent 38%), #fff; overflow: hidden; }
+    .contact-panel::before { content: ''; position: absolute; right: -100px; bottom: -220px; width: 410px; height: 410px; border: 1px solid rgba(99,102,241,.12); border-radius: 50%; box-shadow: 0 0 0 36px rgba(99,102,241,.035), 0 0 0 76px rgba(99,102,241,.025); pointer-events: none; }
+    .contact-inner { position: relative; z-index: 1; max-width: 780px; }
+    .contact-panel h2 { margin: 18px 0 18px; max-width: 720px; font-size: clamp(31px,5vw,58px); font-weight: 700; line-height: 1.14; letter-spacing: -.055em; }
+    .contact-panel p { max-width: 670px; margin: 0; color: #64748b; font-size: 14px; line-height: 2; }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 29px; }
+    .contact-socials { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 27px; }
+    .contact-social { display: inline-flex; align-items: center; gap: 8px; min-height: 38px; padding: 0 13px; border: 1px solid #e2e8f0; border-radius: 11px; color: #475569; background: rgba(255,255,255,.8); font-size: 11px; font-weight: 700; transition: transform .22s var(--ease), border-color .22s ease, color .22s ease, box-shadow .22s ease; }
+    .contact-social:hover { transform: translateY(-3px); border-color: #bfdbfe; color: #2563eb; box-shadow: 0 9px 20px rgba(37,99,235,.1); }
+    .contact-social i { color: #2563eb; font-size: 15px; }
+    .contact-social:nth-child(2) i { color: #1877f2; }
+    .contact-social:nth-child(3) i { color: #0a66c2; }
+    .contact-social:nth-child(4) i { color: #334155; }
+    .contact-form-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 24px; padding: 12px 15px; border: 1px solid #c7d2fe; border-radius: 12px; color: #4338ca; background: #eef2ff; font-size: 12px; font-weight: 700; transition: transform .22s var(--ease), box-shadow .22s ease, background .22s ease; }
+    .contact-form-link:hover { transform: translateY(-3px); background: #e0e7ff; box-shadow: 0 10px 22px rgba(79,70,229,.12); }
+    .contact-form-link i { font-size: 14px; }
+    .contact-note { display: flex; align-items: center; gap: 8px; margin-top: 20px; color: #94a3b8; font-size: 10px; }
+    .contact-note svg { width: 15px; height: 15px; }
+    footer { padding: 26px 0 30px; border-top: 1px solid #e8edf4; background: #fff; }
+    .footer-main { display: flex; align-items: center; justify-content: space-between; gap: 26px; }
+    .footer-brand { display: flex; align-items: center; gap: 12px; }
+    .footer-brand .brand-mark { width: 32px; height: 32px; border-radius: 10px; }
+    .footer-brand .brand-mark svg { width: 18px; height: 18px; }
+    .footer-brand strong { display: block; font-size: 12px; }
+    .footer-brand small { display: block; margin-top: 3px; color: #94a3b8; font-size: 10px; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; color: #64748b; font-size: 10px; font-weight: 600; }
+    .footer-links a:hover { color: #2563eb; }
+    .copyright { color: #94a3b8; font-size: 10px; text-align: right; white-space: nowrap; }
+    .back-top { position: fixed; right: 23px; bottom: 23px; z-index: 50; display: grid; place-items: center; width: 43px; height: 43px; border: 1px solid rgba(203,213,225,.9); border-radius: 14px; color: #475569; background: rgba(255,255,255,.9); box-shadow: 0 8px 24px rgba(15,23,42,.08); opacity: 0; visibility: hidden; transform: translateY(8px); transition: all .25s ease; backdrop-filter: blur(10px); }
+    .back-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    .back-top:hover { color: #2563eb; border-color: #bfdbfe; transform: translateY(-3px); }
+    .back-top svg { width: 18px; height: 18px; }
+
+    /* Reveal motion */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .75s var(--ease), transform .75s var(--ease); }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: .08s; }
+    .delay-2 { transition-delay: .16s; }
+    .delay-3 { transition-delay: .24s; }
+    @keyframes blink { to { visibility: hidden; } }
+    @keyframes dash { to { stroke-dashoffset: -208; } }
+    @keyframes breathe { 0%,100% { opacity: .45; transform: scale(.96); } 50% { opacity: .9; transform: scale(1.05); } }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+    @media (max-width: 1080px) {
+      .desktop-nav { gap: 14px; }
+      .nav-link { font-size: 11px; }
+      .nav-cta { padding: 10px 13px; }
+      .hero-grid { grid-template-columns: minmax(0,1fr) minmax(350px,.88fr); gap: 22px; }
+      .floating-note.note-a { right: -4%; }
+      .solutions-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .solution-card { min-height: 350px; }
+    }
+    @media (max-width: 860px) {
+      .container-wide { width: min(100% - 40px, var(--container)); }
+      .topbar { height: 70px; }
+      .desktop-nav, .nav-wrap > .nav-cta { display: none; }
+      .menu-toggle { display: inline-flex; }
+      .mobile-nav { display: none; position: absolute; top: calc(100% + 1px); left: 0; right: 0; padding: 13px 20px 20px; background: rgba(255,255,255,.97); border-bottom: 1px solid #e2e8f0; box-shadow: 0 18px 26px rgba(15,23,42,.065); backdrop-filter: blur(16px); }
+      .mobile-nav.is-open { display: block; }
+      .mobile-nav a { display: flex; align-items: center; justify-content: space-between; padding: 13px 4px; border-bottom: 1px solid #f1f5f9; color: #475569; font-size: 13px; font-weight: 600; }
+      .mobile-nav a:last-child { margin-top: 10px; padding: 13px 15px; justify-content: center; gap: 8px; border: 1px solid #dbeafe; border-radius: 12px; color: #1d4ed8; background: #eff6ff; }
+      .mobile-nav a svg { width: 16px; height: 16px; }
+      .hero { padding-top: 130px; min-height: unset; padding-bottom: 78px; }
+      .hero-grid { grid-template-columns: minmax(0,1fr); gap: 30px; }
+      .hero-copy { max-width: 720px; }
+      .hero h1 { max-width: 640px; font-size: clamp(43px,8.4vw,66px); min-height: 1.2em; }
+      .typed-visual { min-height: unset; }
+      .hero-visual { width: min(100%, 620px); margin-inline: auto; padding: 10px 22px; }
+      .floating-note.note-a { right: 0; top: 7%; }
+      .floating-note.note-b { left: 4%; bottom: 7%; }
+      .hero-scroll { display: none; }
+      .section { padding: 86px 0; }
+      .about-grid { grid-template-columns: 1fr; gap: 38px; }
+      .about-intro { position: static; }
+      .capability-list { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .solution-topline, .insights-head { display: block; }
+      .solution-topline .section-heading, .insights-head .section-heading { margin-bottom: 32px; }
+      .solution-side-note { max-width: 560px; margin: -18px 0 30px; }
+      .draft-label { margin: -12px 0 25px; }
+      .project-card { grid-template-columns: minmax(0,.62fr) minmax(0,1.38fr); }
+      .project-aside { padding: 24px; }
+      .project-main { padding: 26px; }
+      .insights-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .insight-card:last-child { grid-column: 1 / -1; min-height: 240px; }
+      .footer-main { flex-wrap: wrap; }
+      .copyright { width: 100%; text-align: left; }
+    }
+    @media (max-width: 600px) {
+      .container-wide { width: calc(100% - 36px); }
+      .brand-role { font-size: 9px; }
+      .hero { padding-top: 119px; padding-bottom: 64px; }
+      .hero::after { width: 280px; height: 280px; right: -160px; top: 210px; }
+      .hero h1 { margin-top: 24px; margin-bottom: 19px; font-size: clamp(39px, 10vw, 53px); line-height: 1.13; letter-spacing: -.06em; }
+      .hero-subtitle { font-size: 15px; }
+      .hero-tags { gap: 6px; }
+      .hero-tag { font-size: 9px; padding: 7px 8px; }
+      .hero-actions { display: grid; grid-template-columns: 1fr; margin-top: 25px; }
+      .hero-actions .btn { width: 100%; }
+      .hero-footnote { align-items: flex-start; line-height: 1.7; }
+      .hero-visual { width: calc(100% + 8px); margin-left: -4px; padding: 13px 2px 22px; }
+      .floating-note { padding: 9px 10px; gap: 7px; border-radius: 12px; }
+      .floating-note.note-a { right: -2px; top: 6%; }
+      .floating-note.note-b { left: -1px; bottom: 4%; }
+      .note-icon { width: 29px; height: 29px; border-radius: 9px; }
+      .note-icon svg { width: 15px; height: 15px; }
+      .note-label { font-size: 8px; }
+      .note-value { font-size: 9px; }
+      .section { padding: 70px 0; }
+      .section-heading { margin-bottom: 32px; }
+      .section-heading h2 { font-size: 32px; }
+      .section-heading p { font-size: 13px; }
+      .about-quote { font-size: 17px; }
+      .about-copy { font-size: 13px; }
+      .capability-list { grid-template-columns: 1fr; gap: 11px; }
+      .capability-card { min-height: unset; padding: 21px; }
+      .cap-icon { margin-bottom: 14px; }
+      .method-strip { padding: 17px 14px; }
+      .method-flow { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 9px; }
+      .method-step:not(:last-child)::after { display: none; }
+      .solutions-grid { grid-template-columns: 1fr; gap: 12px; }
+      .solution-card { min-height: unset; padding: 23px; }
+      .solution-head { margin-bottom: 16px; }
+      .solution-card h3 { font-size: 17px; }
+      .service-cta { align-items: flex-start; flex-direction: column; padding: 25px 22px; gap: 19px; }
+      .service-cta .btn { width: 100%; }
+      .service-cta::after { right: -165px; }
+      .project-list { gap: 14px; }
+      .project-card { grid-template-columns: 1fr; }
+      .project-aside { min-height: 150px; flex-direction: row; align-items: center; gap: 18px; padding: 20px 22px; }
+      .project-aside .industry-label { position: absolute; top: 17px; left: 22px; }
+      .project-glyph { width: 52px; height: 52px; border-radius: 16px; margin-top: 23px; }
+      .project-glyph svg { width: 27px; height: 27px; }
+      .project-index { margin-top: auto; align-self: flex-end; }
+      .project-main { padding: 24px 22px; }
+      .project-main h3 { font-size: 20px; }
+      .project-main > p { font-size: 12px; }
+      .project-points { grid-template-columns: 1fr; gap: 9px; }
+      .other-projects { grid-template-columns: 1fr; gap: 12px; }
+      .other-project { padding: 22px; }
+      .project-principle { padding: 15px; }
+      .insights-grid { grid-template-columns: 1fr; gap: 12px; }
+      .insight-card, .insight-card:last-child { min-height: 245px; grid-column: auto; padding: 22px; }
+      .contact-section { padding: 54px 0 55px; }
+      .product-grid { grid-template-columns: 1fr; }
+      .product-card { min-height: 0; }
+      .contact-panel { padding: 30px 23px; border-radius: 22px; }
+      .contact-panel h2 { font-size: 37px; }
+      .contact-panel p { font-size: 13px; }
+      .contact-actions { display: grid; grid-template-columns: 1fr; }
+      .contact-actions .btn { width: 100%; }
+      .contact-socials { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .contact-social { justify-content: center; }
+      .contact-form-link { width: 100%; justify-content: center; }
+      .footer-main { align-items: flex-start; gap: 22px; }
+      .footer-links { justify-content: flex-start; gap: 12px 17px; }
+      .copyright { font-size: 9px; line-height: 1.7; }
+      .back-top { right: 14px; bottom: 14px; width: 40px; height: 40px; }
+    }
+    /* Cross-browser layout guardrails: the page remains styled even if CDN resets load late. */
+    html { -webkit-text-size-adjust: 100%; }
+    body { line-height: 1.5; }
+    button, input, select, textarea { font: inherit; }
+    .hero-grid > *, .about-grid > *, .project-card > *, .method-flow > *, .solutions-grid > *, .insights-grid > * { min-width: 0; }
+    .method-flow { align-items: stretch; }
+    .method-step { overflow-wrap: anywhere; }
+    .diagram { display: block; max-width: 100%; }
+
+    /* Brand palette application: warm editorial neutrals, olive structure, rust action. */
+    body { background: #fbf8f3; }
+    body::selection { background: #f4e5dc; color: #8f4934; }
+    button:focus-visible, a:focus-visible { outline-color: #b85c3d; }
+    .typed-visual { color: #29251f; }
+    .nav-link:hover, .nav-link[aria-current="location"] { color: #29251f; }
+    .hero-footnote svg, .project-principle svg { color: #64705a; }
+    .service-cta .btn { color: #64705a; }
+    .service-cta .btn:hover { color: #8f4934; background: #f4e5dc; border-color: #d8a894; }
+    .section-soft, .product-section { background: linear-gradient(180deg, #f4efe7 0%, #fbf8f3 100%); }
+    .hero { background: radial-gradient(ellipse at 76% 27%, rgba(216,200,181,.46), transparent 33%), radial-gradient(ellipse at 93% 62%, rgba(100,112,90,.16), transparent 35%), linear-gradient(180deg, #fbf8f3 0%, #f4efe7 76%, #fbf8f3 100%); }
+    .hero::before { background-image: linear-gradient(rgba(116,107,97,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(116,107,97,.09) 1px, transparent 1px); }
+    .gradient-text { background: linear-gradient(105deg, #64705a 5%, #7d755f 52%, #b85c3d 100%); }
+    .brand-mark, .btn-primary { background: linear-gradient(110deg, #64705a, #7d755f 55%, #b85c3d); }
+    .btn-primary { box-shadow: 0 10px 23px rgba(100,112,90,.22); }
+    .service-cta { background: linear-gradient(112deg, #4f5948 0%, #64705a 62%, #8f543f 100%); }
+    .contact-section { background: linear-gradient(180deg, #fbf8f3 0%, #f4efe7 100%); }
+    .contact-panel { border-color: #d9cdbd; background: radial-gradient(ellipse at 90% 0%, rgba(216,200,181,.62), transparent 37%), radial-gradient(ellipse at 0% 100%, rgba(100,112,90,.16), transparent 38%), #fbf8f3; }
+    .btn-secondary, .nav-cta { color: #64705a; border-color: #c9b9a6; background: rgba(238,229,218,.72); }
+    .btn-secondary:hover, .nav-cta:hover { border-color: #b85c3d; background: #fbf8f3; }
+    .contact-form-link { color: #8f4934; border-color: #d8a894; background: #f4e5dc; }
+    .contact-form-link:hover { background: #eed8cc; }
+    .contact-social:hover, .product-card:hover, .solution-card:hover, .insight-card:hover, .capability-card:hover, .other-project:hover { border-color: #c3b49f; }
+    .contact-social i, .product-link, .product-link:hover, .footer-links a:hover, .back-top:hover { color: #b85c3d; }
+    .contact-social:nth-child(2) i, .contact-social:nth-child(3) i, .contact-social:nth-child(4) i { color: #64705a; }
+    .contact-social:hover { color: #b85c3d; }
+    .product-icon, .note-icon, .cap-icon, .solution-icon, .pill, .hero-tag:first-child { color: #64705a; background: #e8ede4; }
+    .product-card:nth-child(2) .product-icon, .product-card:nth-child(3) .product-icon, .note-icon.purple, .capability-card:nth-child(2) .cap-icon, .capability-card:nth-child(5) .cap-icon, .solution-card:nth-child(2) .solution-icon, .solution-card:nth-child(5) .solution-icon { color: #b85c3d; background: #f4e5dc; }
+    .capability-card:nth-child(3) .cap-icon, .solution-card:nth-child(3) .solution-icon { color: #64705a; background: #e8ede4; }
+    .availability { border-color: #d9cdbd; background: rgba(251,248,243,.78); }
+    .hero-tag, .fact-chip, .project-principle, .insight-arrow { background: #f4efe7; border-color: #d9cdbd; }
+    .about-quote { border-left-color: #b85c3d; color: #4b443d; }
+    .credential-panel, .method-strip { border-color: #d9cdbd; background: linear-gradient(135deg, #fbf8f3, #f4efe7); }
+    .credential-icon { color: #64705a; background: #e8ede4; }
+    .project-aside { background: linear-gradient(145deg, #e8ede4 0%, #f4efe7 56%, #f4e5dc 100%); }
+    .project-glyph { color: #64705a; background: rgba(251,248,243,.76); }
+    .industry-label { border-color: #c3d0bc; color: #64705a; background: rgba(251,248,243,.73); }
+    .point-check { color: #64705a; background: #e8ede4; }
+    .draft-label { border-color: #d9cdbd; background: #fbf8f3; }
+    .draft-label::before { background: #c9b9a6; }
+    .contact-note { color: #746b61; }
+    .topbar { border-bottom-color: rgba(217,205,189,.72); background: rgba(251,248,243,.82); }
+    .topbar.is-scrolled { background: rgba(251,248,243,.95); }
+    .footer-links, .copyright { color: #746b61; }
+    footer { border-top-color: #d9cdbd; background: #fbf8f3; }
+
+    /* Recolor the existing inline SVG illustration without changing its structure. */
+    .diagram [stroke="#2563eb"], .diagram [fill="#2563eb"] { stroke: #64705a !important; fill: #64705a !important; }
+    .diagram [stroke="#7c3aed"], .diagram [fill="#7c3aed"] { stroke: #b85c3d !important; fill: #b85c3d !important; }
+    .diagram [stroke="#bfdbfe"], .diagram [fill="#dbeafe"] { stroke: #c3d0bc !important; fill: #e8ede4 !important; }
+    .diagram [stroke="#93c5fd"] { stroke: #b9c9b0 !important; }
+    .diagram [stroke="#cbd5e1"] { stroke: #c9b9a6 !important; }
+    .diagram [fill="#6366f1"] { fill: #b85c3d !important; }
+    .diagram [stroke="#dbeafe"] { stroke: #d9cdbd !important; }
+    .diagram [fill="#0f172a"] { fill: #29251f !important; }
+    #centerGrad stop:first-child { stop-color: #64705a; }
+    #centerGrad stop:last-child { stop-color: #b85c3d; }
+    #cardGrad stop:first-child { stop-color: #fbf8f3; }
+    #cardGrad stop:last-child { stop-color: #f4efe7; }
+
+    /* On narrower desktop/laptop windows, stack the hero before its columns feel cramped. */
+    @media (min-width: 861px) and (max-width: 980px) {
+      .hero { min-height: auto; padding-bottom: 74px; }
+      .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+      .hero-copy { max-width: 760px; }
+      .hero-visual { width: min(100%, 620px); margin-inline: auto; padding: 12px 24px; }
+      .hero-scroll { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+      .typed-visual .cursor { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- SVG icon set: local, lightweight, and independent of external icon libraries. -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m15.7 8.3-2.1 5.3-5.3 2.1 2.1-5.3 5.3-2.1Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.7"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m6 14 6-6 6 6M12 8v12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M7.5 3.5v3M16.5 3.5v3M3.5 9.5h17" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.7"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.7"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="1" fill="currentColor"/></symbol>
+    <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2.2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="18" cy="6" r="2.2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8.2 18h3a3 3 0 0 0 3-3V9a3 3 0 0 1 3-3" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 20v-1.7a3.3 3.3 0 0 0-3.3-3.3H6.3A3.3 3.3 0 0 0 3 18.3V20M9.5 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7ZM17 4.3a3.5 3.5 0 0 1 0 6.7M21 20v-1.7a3.3 3.3 0 0 0-2.6-3.2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"/></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m8 12.3 2.5 2.5 5.5-5.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 20 6v5.5c0 4.6-3.2 7.7-8 9.5-4.8-1.8-8-4.9-8-9.5V6l8-3Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.7"/><path d="m8.5 12 2.2 2.2 4.8-4.8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></symbol>
+    <symbol id="i-file-check" viewBox="0 0 24 24"><path d="M14 2.8H6.5A2.5 2.5 0 0 0 4 5.3v13.4a2.5 2.5 0 0 0 2.5 2.5h11a2.5 2.5 0 0 0 2.5-2.5V9.8L14 2.8Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.7"/><path d="M14 3v7h6M8 15l2.2 2.2L15 12.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H5l1.7-3.2A7.5 7.5 0 1 1 20 11.5Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.7"/><path d="M8 11.5h.01M12.5 11.5h.01M17 11.5h.01" stroke="currentColor" stroke-linecap="round" stroke-width="2.2"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><path d="M4 21V4.5A1.5 1.5 0 0 1 5.5 3h9A1.5 1.5 0 0 1 16 4.5V21M2 21h20M8 7h2M8 11h2M8 15h2M18 10h1.5A1.5 1.5 0 0 1 21 11.5V21M13 21v-4h-3v4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></symbol>
+    <symbol id="i-landmark" viewBox="0 0 24 24"><path d="m3 9 9-6 9 6M5 10v8M9.7 10v8M14.3 10v8M19 10v8M3 21h18M2 18h20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></symbol>
+    <symbol id="i-train" viewBox="0 0 24 24"><rect x="5" y="2.5" width="14" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8.5 6.5h7M8.5 11h.01M15.5 11h.01M8 21l2-2.5M16 21l-2-2.5M5 15h14" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"/></symbol>
+    <symbol id="i-lightbulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M8.2 14.5A7 7 0 1 1 15.8 14.5c-.9.7-1.3 1.5-1.3 2.5h-5c0-1-.4-1.8-1.3-2.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3ZM19 15l1.1 2.9L23 19l-2.9 1.1L19 23l-1.1-2.9L15 19l2.9-1.1L19 15Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5"/></symbol>
+  </svg>
+
+  <header class="topbar" id="topbar">
+    <div class="container-wide nav-wrap">
+      <a class="brand-lockup" href="#home" aria-label="張淳碧個人品牌網站首頁">
+        <span class="brand-mark"><svg aria-hidden="true"><use href="#i-compass"/></svg></span>
+        <span><span class="brand-name">張淳碧</span><span class="brand-role">IT PROJECT MANAGEMENT</span></span>
+      </a>
+      <nav class="desktop-nav" aria-label="主要導覽">
+        <a class="nav-link" href="#about">關於我</a>
+        <a class="nav-link" href="#solutions">專業服務</a>
+        <a class="nav-link" href="#projects">專案實績</a>
+        <a class="nav-link" href="#insights">專業觀點</a>
+        <a class="nav-link" href="#contact">聯絡合作</a>
+      </nav>
+      <a class="nav-cta" href="https://calendar.app.google/o5jVx2qZiwbZsziy7" target="_blank" rel="noopener noreferrer" aria-label="在新分頁開啟專案諮詢預約頁面">預約諮詢 <svg aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="開啟導覽選單" aria-controls="mobileNav" aria-expanded="false"><svg aria-hidden="true"><use href="#i-menu"/></svg></button>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="行動版導覽">
+      <a href="#about">關於我 <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+      <a href="#solutions">專業服務 <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+      <a href="#projects">專案實績 <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+      <a href="#insights">專業觀點 <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+      <a href="#contact">聯絡合作 <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+      <a href="https://calendar.app.google/o5jVx2qZiwbZsziy7" target="_blank" rel="noopener noreferrer" aria-label="在新分頁開啟專案諮詢預約頁面">預約專案諮詢 <svg aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container-wide hero-grid">
+        <div class="hero-copy">
+          <div class="availability"><span class="pulse-dot" aria-hidden="true"></span>資訊系統專案管理・需求整合・交付協作</div>
+          <h1 id="hero-title" aria-label="Turning Complexity Into Clarity"><span class="sr-only">Turning Complexity Into Clarity</span><span class="typed-visual gradient-text" id="typedTitle" aria-hidden="true">Turning Complexity Into Clarity</span></h1>
+          <p class="hero-subtitle">整合<strong>需求、技術與管理</strong>，讓複雜的資訊系統專案清晰推進、穩健交付。</p>
+          <div class="hero-tags" aria-label="專業重點">
+            <span class="hero-tag">15 年專案管理經驗</span><span class="hero-tag">Government &amp; Financial Systems</span><span class="hero-tag">Requirements Analysis</span><span class="hero-tag">PMP Certified</span>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://calendar.app.google/o5jVx2qZiwbZsziy7" target="_blank" rel="noopener noreferrer" aria-label="在新分頁開啟專案諮詢預約頁面">預約專案諮詢 <svg aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+            <a class="btn btn-secondary" href="#about">探索我的專業 <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+          </div>
+          <div class="hero-footnote"><svg aria-hidden="true"><use href="#i-shield"/></svg><span>以清晰的需求、透明的協作與可追蹤的管理，建立可靠的交付基礎。</span></div>
+        </div>
+        <div class="hero-visual" aria-label="需求、規劃、協作與交付的抽象流程示意圖" role="img">
+          <div class="visual-halo"></div>
+          <svg class="diagram" viewBox="0 0 560 470" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#60a5fa"/><stop offset=".55" stop-color="#818cf8"/><stop offset="1" stop-color="#c4b5fd"/></linearGradient>
+              <linearGradient id="centerGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2563eb"/><stop offset="1" stop-color="#7c3aed"/></linearGradient>
+              <linearGradient id="cardGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#f8fbff"/></linearGradient>
+              <filter id="cardShadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="11" stdDeviation="13" flood-color="#64748b" flood-opacity=".12"/></filter>
+            </defs>
+            <circle cx="285" cy="229" r="173" fill="none" stroke="#cbd5e1" stroke-opacity=".42" stroke-dasharray="2 8"/>
+            <circle cx="285" cy="229" r="132" fill="none" stroke="#bfdbfe" stroke-opacity=".48"/>
+            <g fill="none" stroke="url(#lineGrad)" stroke-width="1.6" stroke-linecap="round" class="flow-path">
+              <path d="M91 115 C150 115 173 157 224 185"/>
+              <path d="M456 104 C399 116 381 157 342 184"/>
+              <path d="M102 353 C166 342 181 302 226 272"/>
+              <path d="M458 354 C397 338 373 301 342 273"/>
+              <path d="M280 52 C280 99 283 116 284 142"/>
+              <path d="M282 312 C283 348 281 378 281 413"/>
+            </g>
+            <g fill="#93c5fd"><circle cx="151" cy="137" r="3"/><circle cx="401" cy="139" r="3"/><circle cx="169" cy="326" r="3"/><circle cx="402" cy="323" r="3"/><circle cx="283" cy="93" r="3"/><circle cx="282" cy="371" r="3"/></g>
+            <g filter="url(#cardShadow)">
+              <rect x="25" y="75" width="144" height="80" rx="16" fill="url(#cardGrad)" stroke="#dbeafe"/>
+              <rect x="389" y="62" width="144" height="80" rx="16" fill="url(#cardGrad)" stroke="#e0e7ff"/>
+              <rect x="20" y="328" width="151" height="80" rx="16" fill="url(#cardGrad)" stroke="#dbeafe"/>
+              <rect x="386" y="327" width="151" height="80" rx="16" fill="url(#cardGrad)" stroke="#ddd6fe"/>
+              <rect x="211" y="20" width="144" height="56" rx="15" fill="white" stroke="#dbeafe"/>
+              <rect x="211" y="399" width="144" height="53" rx="15" fill="white" stroke="#dbeafe"/>
+            </g>
+            <g font-family="DM Sans, Noto Sans TC, sans-serif">
+              <g fill="#2563eb"><circle cx="48" cy="100" r="5"/><circle cx="411" cy="88" r="5"/><circle cx="44" cy="354" r="5"/><circle cx="410" cy="353" r="5"/></g>
+              <g fill="#64748b" font-size="10" font-weight="600" letter-spacing=".3"><text x="60" y="103">01 / DISCOVER</text><text x="423" y="91">02 / DEFINE</text><text x="56" y="357">03 / ALIGN</text><text x="422" y="356">04 / DELIVER</text></g>
+              <g fill="#0f172a" font-size="15" font-weight="700"><text x="43" y="128">理解需求</text><text x="407" y="116">清晰規格</text><text x="38" y="383">跨團隊協作</text><text x="404" y="382">穩健交付</text></g>
+              <g fill="#94a3b8" font-size="9"><text x="43" y="143">Business needs</text><text x="407" y="131">Clear requirements</text><text x="38" y="398">Aligned execution</text><text x="404" y="397">Reliable delivery</text></g>
+              <g fill="#64748b" font-size="9" font-weight="700" letter-spacing="1.4" text-anchor="middle"><text x="283" y="43">PROJECT FRAMEWORK</text><text x="283" y="421">CONTROL · COMMUNICATE</text></g>
+              <g fill="#94a3b8"><circle cx="237" cy="58" r="2"/><circle cx="247" cy="58" r="2"/><circle cx="257" cy="58" r="2"/></g>
+            </g>
+            <g class="node-halo"><circle cx="283" cy="229" r="75" fill="#dbeafe" fill-opacity=".58"/><circle cx="283" cy="229" r="62" fill="#fff" fill-opacity=".9" stroke="#bfdbfe" stroke-width="1.3"/><circle cx="283" cy="229" r="48" fill="url(#centerGrad)"/></g>
+            <g fill="white" text-anchor="middle" font-family="DM Sans, Noto Sans TC, sans-serif"><text x="283" y="224" font-size="12" font-weight="500" letter-spacing="1.2">PROJECT</text><text x="283" y="243" font-size="14" font-weight="700">CLARITY</text><path d="M267 255h32" stroke="white" stroke-opacity=".55" stroke-width="1"/></g>
+            <g fill="#6366f1"><circle cx="283" cy="157" r="3.5"/><circle cx="283" cy="301" r="3.5"/><circle cx="211" cy="229" r="3.5"/><circle cx="355" cy="229" r="3.5"/></g>
+          </svg>
+          <div class="floating-note note-a"><span class="note-icon"><svg aria-hidden="true"><use href="#i-layers"/></svg></span><span><span class="note-label">Core focus</span><span class="note-value">Requirements to Delivery</span></span></div>
+          <div class="floating-note note-b"><span class="note-icon purple"><svg aria-hidden="true"><use href="#i-check-circle"/></svg></span><span><span class="note-label">Management principle</span><span class="note-value">Clear · Aligned · Reliable</span></span></div>
+        </div>
+      </div>
+      <div class="hero-scroll" aria-hidden="true"><span class="scroll-line"></span>Scroll to explore<span class="scroll-line"></span></div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container-wide">
+        <div class="about-grid">
+          <div class="about-intro reveal">
+            <span class="eyebrow">About Me</span>
+            <h2 id="about-title" class="section-heading" style="margin:17px 0 0;font-size:clamp(30px,4.2vw,46px);line-height:1.2;letter-spacing:-.045em;font-weight:700;">讓需求有脈絡，<br><span class="gradient-text">讓專案有方向。</span></h2>
+            <p class="about-quote">以專業整合需求，以管理實現價值，讓每一個資訊系統專案穩健落地。</p>
+            <div class="about-copy">
+              <p>您好，我是張淳碧，目前任職於卓越資訊股份有限公司，擔任專案經理，擁有 15 年資訊系統專案管理經驗。</p>
+              <p>長期投入公部門與金融等領域的資訊系統建置，致力於整合業務需求、技術規劃與專案管理，協助客戶將複雜的業務流程轉化為具體、可執行且穩定運作的系統解決方案。</p>
+              <p>我不只關注時程，更重視需求本質、流程合理性與跨團隊的共同理解，讓專案目標、執行方向與交付成果保持一致。</p>
+            </div>
+            <div class="credential-panel"><span class="credential-icon"><svg aria-hidden="true"><use href="#i-shield"/></svg></span><div><strong>PMP 專案管理專業證照</strong><span>Project Management Professional</span></div></div>
+          </div>
+          <div class="about-detail reveal delay-1">
+            <div class="capability-list">
+              <article class="capability-card"><span class="cap-icon"><svg aria-hidden="true"><use href="#i-building"/></svg></span><h3>跨產業專案經驗，建立全面視角</h3><p>曾參與疾病管制署、玉山銀行及臺灣鐵路公司等單位的資訊系統建置案，理解不同組織的流程與協作需求。</p></article>
+              <article class="capability-card"><span class="cap-icon"><svg aria-hidden="true"><use href="#i-message"/></svg></span><h3>深入業務流程，打造符合需求的系統</h3><p>重視需求訪談、流程梳理、規格確認及問題釐清，將業務期待轉化為明確、可執行的系統規格。</p></article>
+              <article class="capability-card"><span class="cap-icon"><svg aria-hidden="true"><use href="#i-target"/></svg></span><h3>以專案管理為核心，確保執行品質</h3><p>透過範疇、時程、資源、風險與品質的整體控管，配合階段追蹤及議題分析，降低執行落差。</p></article>
+              <article class="capability-card"><span class="cap-icon"><svg aria-hidden="true"><use href="#i-code"/></svg></span><h3>結合管理與技術，提升協作效率</h3><p>具備 HTML 與 SQL Server 相關知識，能理解系統分析、資料運作及 API 開發議題，促進團隊溝通。</p></article>
+            </div>
+            <div class="method-strip">
+              <p class="method-title">A clear way of working</p>
+              <div class="method-flow" aria-label="工作方法：理解業務需求、確認清楚規格、整合團隊執行、可靠交付成果">
+                <div class="method-step"><span>01</span>理解需求</div><div class="method-step"><span>02</span>確認規格</div><div class="method-step"><span>03</span>整合執行</div><div class="method-step"><span>04</span>穩健交付</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="solutions" aria-labelledby="solutions-title">
+      <div class="container-wide">
+        <div class="solution-topline">
+          <div class="section-heading reveal">
+            <span class="eyebrow">Project Management Solutions</span>
+            <h2 id="solutions-title">從模糊的需求，<br><span class="gradient-text">走向可執行的成果。</span><span class="zh">資訊系統專案管理解決方案</span></h2>
+            <p>面對複雜的資訊系統建置需求，從前期規劃、需求分析、系統設計協作，到測試驗收與正式上線，建立清楚的工作依據與協作節奏。</p>
+          </div>
+          <p class="solution-side-note reveal delay-1">不只是追蹤進度。<br>更重要的是讓每個角色理解目標、責任與下一步。</p>
+        </div>
+        <div class="solutions-grid">
+          <article class="solution-card reveal"><div class="solution-head"><span class="solution-number">SOLUTION / 01</span><span class="solution-icon"><svg aria-hidden="true"><use href="#i-route"/></svg></span></div><h3>專案規劃與管理</h3><p class="challenge-label">常見挑戰</p><p class="challenge-text">範疇、時程與分工尚未對齊，專案推進容易失去共同節奏。</p><div class="solution-detail"><div class="detail-row"><strong>專業介入</strong><span>規劃執行計畫、里程碑、資源分工，追蹤風險與議題。</span></div><div class="detail-row"><strong>預期方向</strong><span>建立可追蹤的執行基準，讓進度與問題更透明。</span></div></div></article>
+          <article class="solution-card reveal delay-1"><div class="solution-head"><span class="solution-number">SOLUTION / 02</span><span class="solution-icon"><svg aria-hidden="true"><use href="#i-message"/></svg></span></div><h3>需求分析與規格撰寫</h3><p class="challenge-label">常見挑戰</p><p class="challenge-text">需求描述模糊或反覆變動，業務與開發團隊對成果想像不同。</p><div class="solution-detail"><div class="detail-row"><strong>專業介入</strong><span>執行需求訪談、流程盤點、需求整合與系統需求規格撰寫。</span></div><div class="detail-row"><strong>預期方向</strong><span>讓需求更清楚、可追蹤，減少理解落差與重工風險。</span></div></div></article>
+          <article class="solution-card reveal delay-2"><div class="solution-head"><span class="solution-number">SOLUTION / 03</span><span class="solution-icon"><svg aria-hidden="true"><use href="#i-code"/></svg></span></div><h3>系統規劃與設計協作</h3><p class="challenge-label">常見挑戰</p><p class="challenge-text">業務期待與技術限制之間需要翻譯，功能及流程不易一次對齊。</p><div class="solution-detail"><div class="detail-row"><strong>專業介入</strong><span>協作系統分析與設計，溝通資料結構、SQL Server 與前後端 API 議題。</span></div><div class="detail-row"><strong>預期方向</strong><span>整合需求與技術實作方向，讓討論更聚焦且有依據。</span></div></div></article>
+          <article class="solution-card reveal"><div class="solution-head"><span class="solution-number">SOLUTION / 04</span><span class="solution-icon"><svg aria-hidden="true"><use href="#i-users"/></svg></span></div><h3>跨部門與跨團隊協作</h3><p class="challenge-label">常見挑戰</p><p class="challenge-text">資訊散落在不同角色之間，待辦事項、問題與決策容易遺漏。</p><div class="solution-detail"><div class="detail-row"><strong>專業介入</strong><span>協調業務、資訊、開發團隊與外部廠商，同步議題及決策。</span></div><div class="detail-row"><strong>預期方向</strong><span>提升專案資訊透明度，讓責任分工與後續行動更清楚。</span></div></div></article>
+          <article class="solution-card reveal delay-1"><div class="solution-head"><span class="solution-number">SOLUTION / 05</span><span class="solution-icon"><svg aria-hidden="true"><use href="#i-file-check"/></svg></span></div><h3>測試、驗收與上線管理</h3><p class="challenge-label">常見挑戰</p><p class="challenge-text">測試缺失、驗收條件與上線準備未充分對齊，影響交付節奏。</p><div class="solution-detail"><div class="detail-row"><strong>專業介入</strong><span>管理測試計畫、問題追蹤、驗收內容與上線協調。</span></div><div class="detail-row"><strong>預期方向</strong><span>明確掌握交付條件與待解決事項，降低上線前的不確定性。</span></div></div></article>
+        </div>
+        <div class="service-cta reveal">
+          <div><h3>讓複雜的專案，有清晰的執行方向。</h3><p>正在規劃資訊系統建置，或需要專案管理與需求分析支援？一起釐清需求、盤點挑戰，找出合適的執行方式。</p></div>
+          <a class="btn" href="https://calendar.app.google/o5jVx2qZiwbZsziy7" target="_blank" rel="noopener noreferrer" aria-label="在新分頁開啟專案諮詢預約頁面">預約專案諮詢 <svg aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container-wide">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Selected Projects</span>
+          <h2 id="projects-title">經得起時間考驗的，<br><span class="gradient-text">是穩健的執行與交付。</span><span class="zh">專案實績與實務經驗</span></h2>
+          <p>以實際參與的資訊系統建置經驗，呈現需求整合、專案協調及交付管理的工作方式。未公開的專案細節與量化成果不作推測。</p>
+        </div>
+        <div class="project-list">
+          <article class="project-card reveal">
+            <div class="project-aside"><span class="industry-label">金融產業・系統建置</span><span class="project-glyph"><svg aria-hidden="true"><use href="#i-landmark"/></svg></span><span class="project-index">CASE STUDY / 01</span></div>
+            <div class="project-main">
+              <h3>玉山銀行債權管理系統建置開發專案</h3>
+              <p>參與金融業債權管理系統建置，負責整體需求分析與專案管理，整合需求、執行規劃及團隊協作，推動專案完成正式上線。</p>
+              <div class="project-facts"><span class="fact-chip"><svg aria-hidden="true"><use href="#i-clock"/></svg>執行期間近三年</span><span class="fact-chip"><svg aria-hidden="true"><use href="#i-users"/></svg>團隊規模約 15 人</span><span class="fact-chip"><svg aria-hidden="true"><use href="#i-check-circle"/></svg>已正式上線</span></div>
+              <div class="project-points">
+                <div class="project-point"><span class="point-check"><svg aria-hidden="true"><use href="#i-check-circle"/></svg></span><span>負責整體需求分析與規格整合</span></div>
+                <div class="project-point"><span class="point-check"><svg aria-hidden="true"><use href="#i-check-circle"/></svg></span><span>管理專案進度及跨團隊協作</span></div>
+                <div class="project-point"><span class="point-check"><svg aria-hidden="true"><use href="#i-check-circle"/></svg></span><span>協調專案工作與交付階段</span></div>
+                <div class="project-point"><span class="point-check"><svg aria-hidden="true"><use href="#i-check-circle"/></svg></span><span>完成系統上線，目前穩定運作</span></div>
+              </div>
+              <div class="project-note">案例說明依已提供的專案經驗整理；未加入未經確認的預算、效能或成本改善數據。</div>
+            </div>
+          </article>
+          <div class="other-projects">
+            <article class="other-project reveal"><span class="small-icon"><svg aria-hidden="true"><use href="#i-building"/></svg></span><h3>政府機關資訊系統</h3><p>疾病管制署資訊系統建置相關經驗。以業務流程理解、需求溝通、規格確認與跨單位協調為工作重點，協助專案方向與執行內容保持一致。</p></article>
+            <article class="other-project reveal delay-1"><span class="small-icon"><svg aria-hidden="true"><use href="#i-train"/></svg></span><h3>交通運輸資訊系統</h3><p>臺灣鐵路公司資訊系統建置相關經驗。熟悉資訊系統專案的協作情境，重視業務理解、團隊溝通與建置流程中的專案管理。</p></article>
+          </div>
+        </div>
+        <div class="project-principle reveal"><svg aria-hidden="true"><use href="#i-lock"/></svg><span>尊重合作單位的資訊安全與保密需求。此處僅呈現可公開的概括性經驗，不包含未經授權的企業商標、內部系統畫面或機敏資料。</span></div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="insights" aria-labelledby="insights-title">
+      <div class="container-wide">
+        <div class="insights-head">
+          <div class="section-heading reveal"><span class="eyebrow">Insights &amp; Notes</span><h2 id="insights-title">把實務經驗，整理成<br><span class="gradient-text">可持續累積的知識。</span><span class="zh">專業觀點</span></h2><p>從需求分析、專案管理到跨團隊協作，持續整理資訊系統建置過程中值得分享的方法與思考。</p></div>
+          <span class="draft-label reveal delay-1">內容規劃中・示範主題</span>
+        </div>
+        <div class="insights-grid">
+          <article class="insight-card reveal"><div class="insight-meta"><span class="insight-category">Requirements</span><span class="insight-status">預留主題</span></div><h3>如何讓需求訪談更有效率？從問題釐清到規格確認</h3><p>整理訪談前的準備、問題拆解與需求確認方式，讓討論從模糊描述逐步走向可執行的規格。</p><div class="insight-bottom"><span>需求分析與系統規劃</span><span class="insight-arrow"><svg aria-hidden="true"><use href="#i-arrow-right"/></svg></span></div></article>
+          <article class="insight-card reveal delay-1"><div class="insight-meta"><span class="insight-category">Collaboration</span><span class="insight-status">預留主題</span></div><h3>業務與技術團隊如何建立共同理解？</h3><p>從角色、語言與目標差異切入，思考如何透過清楚的紀錄、責任分工與議題追蹤減少資訊落差。</p><div class="insight-bottom"><span>跨團隊協作</span><span class="insight-arrow"><svg aria-hidden="true"><use href="#i-arrow-right"/></svg></span></div></article>
+          <article class="insight-card reveal delay-2"><div class="insight-meta"><span class="insight-category">Delivery</span><span class="insight-status">預留主題</span></div><h3>從測試到上線：如何建立清楚的交付條件？</h3><p>以測試進度、缺失追蹤、驗收條件與上線準備為主軸，規劃容易理解且可追蹤的交付節奏。</p><div class="insight-bottom"><span>測試、驗收與上線</span><span class="insight-arrow"><svg aria-hidden="true"><use href="#i-arrow-right"/></svg></span></div></article>
+        </div>
+        <p class="insights-disclaimer">以上為未來文章的示範主題與版位，並非已發表文章；後續可替換為實際文章連結、發布日期與內容摘要。</p>
+      </div>
+    </section>
+
+    <section class="section product-section" id="products" aria-labelledby="products-title">
+      <div class="container-wide">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Core Products &amp; Technical Solutions</span>
+          <h2 id="products-title">從啟動到交付，<br><span class="gradient-text">掌握專案的每個關鍵節點。</span><span class="zh">核心產品與技術解決方案</span></h2>
+          <p>以實務導向的主題，協助專案團隊建立清楚的管理方法、溝通節奏與交付品質。</p>
+        </div>
+        <div class="product-grid">
+          <article class="product-card reveal">
+            <span class="product-icon" aria-hidden="true"><i class="fa-solid fa-calendar-check"></i></span>
+            <h3>從啟動到交付：專案管理實務與時程掌控</h3>
+            <p>掌握專案從啟動、規劃、執行到結案的完整流程，學習如何制定專案計畫、拆解工作項目、安排資源與追蹤進度。透過實務案例，提升時程管理、跨部門協調及進度異常處理能力，協助專案團隊在既定時程與目標內完成交付。</p>
+            <a class="product-link" href="https://judgai.com/" target="_blank" rel="noopener noreferrer">了解更多 <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          </article>
+          <article class="product-card reveal delay-1">
+            <span class="product-icon" aria-hidden="true"><i class="fa-solid fa-comments"></i></span>
+            <h3>釐清需求、對齊目標：專案需求分析與利害關係人溝通</h3>
+            <p>探討如何透過訪談、需求盤點及規格分析，將業務需求轉化為明確且可執行的專案目標。課程涵蓋需求確認、範疇界定、需求變更管理與利害關係人溝通技巧，協助專案管理者降低認知落差、減少需求反覆變更，並提升專案執行效率與成果品質。</p>
+            <a class="product-link" href="https://judgai.com/" target="_blank" rel="noopener noreferrer">了解更多 <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          </article>
+          <article class="product-card reveal delay-2">
+            <span class="product-icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></span>
+            <h3>預見風險、穩健交付：專案風險控管與品質管理</h3>
+            <p>學習如何辨識專案執行過程中的潛在風險，建立風險評估、應變措施與追蹤機制，並將品質管理落實於各項工作流程。課程結合專案進度監控、問題追蹤、測試驗收及異常處理等實務，協助團隊及早發現問題、降低執行風險，確保專案成果符合預期需求。</p>
+            <a class="product-link" href="https://judgai.com/" target="_blank" rel="noopener noreferrer">了解更多 <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="container-wide">
+        <div class="contact-panel reveal">
+          <div class="contact-inner">
+            <span class="eyebrow">Let's Work Together</span>
+            <h2 id="contact-title">Let’s Bring Clarity to Your <span class="gradient-text">Next Project.</span></h2>
+            <p>每一個成功的系統專案，都始於對需求的正確認識。如果你正在規劃資訊系統建置，或需要專案管理、需求分析與跨團隊協作方面的支援，歡迎預約交流。</p>
+            <a class="contact-form-link" href="https://forms.gle/HmwRQHbeUSr9nHxF6" target="_blank" rel="noopener noreferrer" aria-label="在新分頁開啟填寫需求表單"><i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>填寫需求表單 <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            <div class="contact-socials" aria-label="社群連結">
+              <a class="contact-social" href="https://aistudy.pse.is/linemdsgroup" target="_blank" rel="noopener noreferrer" aria-label="加入 LINE 社群"><i class="fa-brands fa-line" aria-hidden="true"></i><span>LINE</span></a>
+              <a class="contact-social" href="https://www.facebook.com/MarketingDataScienceTMR/" target="_blank" rel="noopener noreferrer" aria-label="前往 Facebook 粉絲專頁"><i class="fa-brands fa-facebook" aria-hidden="true"></i><span>Facebook</span></a>
+              <a class="contact-social" href="https://www.linkedin.com/in/howardzhong/" target="_blank" rel="noopener noreferrer" aria-label="前往 LinkedIn 個人頁面"><i class="fa-brands fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a>
+              <a class="contact-social" href="https://github.com/HowardNTUST" target="_blank" rel="noopener noreferrer" aria-label="前往 GitHub 個人頁面"><i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span></a>
+            </div>
+            <div class="contact-actions"><a class="btn btn-primary" href="https://calendar.app.google/o5jVx2qZiwbZsziy7" target="_blank" rel="noopener noreferrer" aria-label="在新分頁開啟專案諮詢預約頁面">預約專案諮詢 <svg aria-hidden="true"><use href="#i-arrow-up-right"/></svg></a><a class="btn btn-secondary" href="https://calendar.app.google/o5jVx2qZiwbZsziy7" target="_blank" rel="noopener noreferrer" aria-label="透過預約頁面洽談合作">洽談合作 <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a></div>
+            <div class="contact-note"><svg aria-hidden="true"><use href="#i-spark"/></svg><span>從一次清楚的對話開始，找到適合專案現況的下一步。</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container-wide footer-main">
+      <a class="footer-brand" href="#home" aria-label="回到首頁"><span class="brand-mark"><svg aria-hidden="true"><use href="#i-compass"/></svg></span><span><strong>張淳碧</strong><small>資訊系統專案管理</small></span></a>
+      <nav class="footer-links" aria-label="頁尾導覽"><a href="#about">關於我</a><a href="#solutions">專業服務</a><a href="#projects">專案實績</a><a href="#insights">專業觀點</a><a href="#contact">聯絡合作</a></nav>
+      <div class="copyright">© <span id="currentYear">2026</span> 張淳碧. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" type="button" aria-label="回到頁面頂端"><svg aria-hidden="true"><use href="#i-arrow-up"/></svg></button>
+
+  <script>
+    (function () {
+      'use strict';
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const typedTitle = document.getElementById('typedTitle');
+      const fullHeadline = 'Turning Complexity Into Clarity';
+
+      // Typewriter animation: keep the complete headline in the semantic H1/aria-label.
+      if (typedTitle && !reduceMotion) {
+        typedTitle.textContent = '';
+        const cursor = document.createElement('span');
+        cursor.className = 'cursor';
+        cursor.setAttribute('aria-hidden', 'true');
+        typedTitle.appendChild(cursor);
+        let index = 0;
+        const typeNext = () => {
+          if (index < fullHeadline.length) {
+            typedTitle.insertBefore(document.createTextNode(fullHeadline.charAt(index)), cursor);
+            index += 1;
+            window.setTimeout(typeNext, index < 12 ? 68 : 46);
+          } else {
+            window.setTimeout(() => cursor.remove(), 1500);
+          }
+        };
+        window.setTimeout(typeNext, 330);
+      }
+
+      // Mobile navigation.
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileNav = document.getElementById('mobileNav');
+      function closeMenu() {
+        if (!menuToggle || !mobileNav) return;
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', '開啟導覽選單');
+        menuToggle.innerHTML = '<svg aria-hidden="true"><use href="#i-menu"/></svg>';
+        mobileNav.classList.remove('is-open');
+      }
+      if (menuToggle && mobileNav) {
+        menuToggle.addEventListener('click', () => {
+          const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+          if (isOpen) {
+            closeMenu();
+          } else {
+            menuToggle.setAttribute('aria-expanded', 'true');
+            menuToggle.setAttribute('aria-label', '關閉導覽選單');
+            menuToggle.innerHTML = '<svg aria-hidden="true"><use href="#i-x"/></svg>';
+            mobileNav.classList.add('is-open');
+          }
+        });
+        mobileNav.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('click', closeMenu));
+        document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+        window.addEventListener('resize', () => { if (window.innerWidth > 860) closeMenu(); });
+      }
+
+      // Subtle reveal animations; show everything when IntersectionObserver is unavailable.
+      const revealItems = document.querySelectorAll('.reveal');
+      if (!reduceMotion && 'IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -25px 0px' });
+        revealItems.forEach(item => revealObserver.observe(item));
+      } else {
+        revealItems.forEach(item => item.classList.add('is-visible'));
+      }
+
+      // Current-section navigation state and header/back-to-top behavior.
+      const topbar = document.getElementById('topbar');
+      const backTop = document.getElementById('backTop');
+      const navLinks = Array.from(document.querySelectorAll('.desktop-nav .nav-link'));
+      const observedSections = ['about', 'solutions', 'projects', 'insights', 'contact']
+        .map(id => document.getElementById(id)).filter(Boolean);
+      function updateScrollUI() {
+        const y = window.scrollY || 0;
+        if (topbar) topbar.classList.toggle('is-scrolled', y > 10);
+        if (backTop) backTop.classList.toggle('is-visible', y > 520);
+      }
+      window.addEventListener('scroll', updateScrollUI, { passive: true });
+      updateScrollUI();
+      if ('IntersectionObserver' in window) {
+        const sectionObserver = new IntersectionObserver(entries => {
+          const visible = entries.filter(entry => entry.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+          if (!visible) return;
+          navLinks.forEach(link => {
+            if (link.getAttribute('href') === '#' + visible.target.id) link.setAttribute('aria-current', 'location');
+            else link.removeAttribute('aria-current');
+          });
+        }, { rootMargin: '-28% 0px -58% 0px', threshold: [0, .1, .25, .5] });
+        observedSections.forEach(section => sectionObserver.observe(section));
+      }
+      if (backTop) backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }));
+      const year = document.getElementById('currentYear');
+      if (year) year.textContent = String(new Date().getFullYear());
+    })();
+  </script>
+</body>
+</html>
