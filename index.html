@@ -140,6 +140,11 @@
     .credential-icon svg { width: 22px; height: 22px; }
     .credential-panel strong { display: block; color: #1e293b; font-size: 13px; }
     .credential-panel span { display: block; margin-top: 4px; color: #94a3b8; font-size: 11px; }
+    .profile-photo { position: relative; display: grid; grid-template-columns: minmax(190px, .8fr) minmax(0, 1.2fr); align-items: center; gap: 18px; margin: 0 0 24px; padding: 10px; border: 1px solid #d9cdbd; border-radius: 22px; background: #fbf8f3; box-shadow: 0 18px 35px rgba(41,37,31,.08); }
+    .profile-photo::before { content: ''; position: absolute; top: 22px; left: -9px; width: 72px; height: 72px; border-top: 2px solid #b85c3d; border-left: 2px solid #b85c3d; border-radius: 12px 0 0 0; pointer-events: none; }
+    .profile-photo img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 61% 42%; border-radius: 15px; }
+    .profile-photo figcaption { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding: 13px 15px; color: #746b61; font-size: 11px; line-height: 1.7; }
+    .profile-photo figcaption strong { color: #29251f; font-size: 12px; }
     .capability-list { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
     .capability-card { position: relative; min-height: 210px; padding: 23px; border: 1px solid #e7edf5; border-radius: 19px; background: rgba(255,255,255,.88); overflow: hidden; transition: transform .3s var(--ease), box-shadow .3s ease, border-color .3s ease; }
     .capability-card::after { content: ''; position: absolute; top: -55px; right: -45px; width: 115px; height: 115px; border-radius: 50%; background: radial-gradient(circle, rgba(191,219,254,.28), transparent 70%); pointer-events: none; }
@@ -220,6 +225,15 @@
     .other-project p { margin: 0; color: #64748b; font-size: 12px; line-height: 1.9; }
     .project-principle { display: flex; align-items: flex-start; gap: 12px; margin-top: 24px; padding: 18px 20px; border-radius: 14px; background: #f8fafc; color: #64748b; font-size: 11px; line-height: 1.9; }
     .project-principle svg { width: 18px; height: 18px; color: #64748b; flex-shrink: 0; margin-top: 1px; }
+    .fieldwork-section { background: #f4efe7; }
+    .fieldwork-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; }
+    .fieldwork-card { position: relative; min-height: 265px; margin: 0; border: 1px solid #d9cdbd; border-radius: 19px; background: #fbf8f3; overflow: hidden; box-shadow: 0 9px 24px rgba(41,37,31,.045); }
+    .fieldwork-card:nth-child(1), .fieldwork-card:nth-child(2), .fieldwork-card:nth-child(3), .fieldwork-card:nth-child(4), .fieldwork-card:nth-child(5), .fieldwork-card:nth-child(6) { grid-column: auto; }
+    .fieldwork-card img { display: block; width: 100%; height: 265px; object-fit: cover; transition: transform .45s var(--ease); }
+    .fieldwork-card:hover img { transform: scale(1.04); }
+    .fieldwork-card figcaption { position: absolute; right: 12px; bottom: 12px; left: 12px; padding: 12px 14px; border: 1px solid rgba(251,248,243,.65); border-radius: 12px; color: #fbf8f3; background: rgba(41,37,31,.72); backdrop-filter: blur(8px); }
+    .fieldwork-card figcaption strong { display: block; font-size: 12px; }
+    .fieldwork-card figcaption span { display: block; margin-top: 3px; color: rgba(251,248,243,.75); font-size: 10px; }
 
     /* Insights */
     .insights-head { display: flex; justify-content: space-between; align-items: end; gap: 28px; }
@@ -396,6 +410,11 @@
       .other-projects { grid-template-columns: 1fr; gap: 12px; }
       .other-project { padding: 22px; }
       .project-principle { padding: 15px; }
+      .profile-photo { display: block; margin: 0 0 22px; }
+      .profile-photo figcaption { flex-direction: row; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 7px 2px; font-size: 10px; line-height: 1.6; }
+      .fieldwork-grid { grid-template-columns: 1fr; gap: 12px; }
+      .fieldwork-card, .fieldwork-card:nth-child(1), .fieldwork-card:nth-child(2), .fieldwork-card:nth-child(3), .fieldwork-card:nth-child(4), .fieldwork-card:nth-child(5), .fieldwork-card:nth-child(6) { grid-column: auto; min-height: 220px; }
+      .fieldwork-card img { height: 220px; }
       .insights-grid { grid-template-columns: 1fr; gap: 12px; }
       .insight-card, .insight-card:last-child { min-height: 245px; grid-column: auto; padding: 22px; }
       .contact-section { padding: 54px 0 55px; }
@@ -631,6 +650,10 @@
             <div class="credential-panel"><span class="credential-icon"><svg aria-hidden="true"><use href="#i-shield"/></svg></span><div><strong>PMP 專案管理專業證照</strong><span>Project Management Professional</span></div></div>
           </div>
           <div class="about-detail reveal delay-1">
+            <figure class="profile-photo reveal delay-1">
+              <img src="photos01/IMG_0606.jpg" alt="張淳碧的個人照片" loading="lazy">
+              <figcaption><strong>About Me</strong><span>專案管理，始於理解與連結。</span></figcaption>
+            </figure>
             <div class="capability-list">
               <article class="capability-card"><span class="cap-icon"><svg aria-hidden="true"><use href="#i-building"/></svg></span><h3>跨產業專案經驗，建立全面視角</h3><p>曾參與疾病管制署、玉山銀行及臺灣鐵路公司等單位的資訊系統建置案，理解不同組織的流程與協作需求。</p></article>
               <article class="capability-card"><span class="cap-icon"><svg aria-hidden="true"><use href="#i-message"/></svg></span><h3>深入業務流程，打造符合需求的系統</h3><p>重視需求訪談、流程梳理、規格確認及問題釐清，將業務期待轉化為明確、可執行的系統規格。</p></article>
@@ -701,6 +724,24 @@
           </div>
         </div>
         <div class="project-principle reveal"><svg aria-hidden="true"><use href="#i-lock"/></svg><span>尊重合作單位的資訊安全與保密需求。此處僅呈現可公開的概括性經驗，不包含未經授權的企業商標、內部系統畫面或機敏資料。</span></div>
+      </div>
+    </section>
+
+    <section class="section fieldwork-section" id="fieldwork" aria-labelledby="fieldwork-title">
+      <div class="container-wide">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Training &amp; Project Scenes</span>
+          <h2 id="fieldwork-title">把方法帶進現場，<br><span class="gradient-text">讓知識真正發生。</span><span class="zh">內訓與專案場景</span></h2>
+          <p>從企業內訓、產業交流到專案現場，持續在不同情境中整理問題、分享方法，並將專業轉化為團隊可以採用的行動。</p>
+        </div>
+        <div class="fieldwork-grid">
+          <figure class="fieldwork-card reveal"><img src="photos01/資策會-training-classroom-03.png" alt="資策會內訓教室與課程場景" loading="lazy"><figcaption><strong>資策會｜內訓課程</strong><span>Training classroom</span></figcaption></figure>
+          <figure class="fieldwork-card reveal delay-1"><img src="photos01/工研院-training-classroom-02.png" alt="工研院內訓課程場景" loading="lazy"><figcaption><strong>工研院｜專業培訓</strong><span>Knowledge in action</span></figcaption></figure>
+          <figure class="fieldwork-card reveal"><img src="photos01/台灣 Top3 航空業-training-classroom-04.png" alt="台灣航空業內訓課程場景" loading="lazy"><figcaption><strong>航空業｜企業內訓</strong><span>Cross-team learning</span></figcaption></figure>
+          <figure class="fieldwork-card reveal delay-1"><img src="photos01/台灣 Top3 電信業-training-classroom-01.png" alt="台灣電信業內訓課程場景" loading="lazy"><figcaption><strong>電信業｜團隊交流</strong><span>Industry workshop</span></figcaption></figure>
+          <figure class="fieldwork-card reveal delay-2"><img src="photos01/台灣 Top3 IC設計-expo-stage-02.jpg" alt="台灣 IC 設計產業展示活動場景" loading="lazy"><figcaption><strong>IC 設計業｜展示交流</strong><span>Project showcase</span></figcaption></figure>
+          <figure class="fieldwork-card reveal delay-1"><img src="photos01/國科會-expo-stage-01.jpg" alt="國科會展示活動場景" loading="lazy"><figcaption><strong>國科會｜專案展示</strong><span>From planning to delivery</span></figcaption></figure>
+        </div>
       </div>
     </section>
 
